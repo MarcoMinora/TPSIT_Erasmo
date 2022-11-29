@@ -11,7 +11,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TcpServer {
+public class ServerWeb {
 	public static void main(String[] args) throws Exception {
 		
 		final int SERVER_PORT=8765;
@@ -45,7 +45,7 @@ public class TcpServer {
 				//clientMsg += "Connection: close\r\n";
 				//clientMsg += "Content-Type: text/plain\r\n";
 				clientMsg += "\r\n";
-				clientMsg += "Saluti dal web server Java";
+				clientMsg += "Saluti dal web server del sergente Marco Minora";
 				outStream.write(clientMsg.getBytes());
 				outStream.flush();
 
