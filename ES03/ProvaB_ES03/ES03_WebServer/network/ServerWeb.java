@@ -27,7 +27,7 @@ public class ServerWeb {
 			boolean endConn=false;
 			while(!endConn) {
 				// Attesa della connessione con il client
-				System.out.println("Attesa ricezione dati dal client ....................... \n");
+				System.out.println("\nAttesa ricezione dati dal client ....................... \n");
 				Socket clientSocket = serverSocket.accept();
 				
 				// Create output stream to write data and input stream to read data from socket
