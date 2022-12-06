@@ -17,6 +17,7 @@ public class ServerWeb {
 		
 		final int SERVER_PORT=8765;
 		String clientMsg = "";
+		String serverMsg = "";
 		
 		try {			 
 			// Creazione del socket sul server e ascolto sulla porta
@@ -42,12 +43,12 @@ public class ServerWeb {
 				// ---------------------------------------------------------
 
 				//Invio dei dati su stream di rete al client
-				clientMsg = "HTTP/1.1 200 OK\r\n";
-				//clientMsg += "Connection: close\r\n";
-				//clientMsg += "Content-Type: text/plain\r\n";
-				clientMsg += "\r\n";
-				clientMsg += "Saluti dal web server del sergente Marco Minora";
-				outStream.write(clientMsg.getBytes());
+				serverMsg = "HTTP/1.1 200 OK\r\n";
+				//serverMsg += "Connection: close\r\n";
+				//serverMsg += "Content-Type: text/plain\r\n";
+				serverMsg += "\r\n";
+				serverMsg += "Saluti dal web server del sergente Marco Minora";
+				outStream.write(serverMsg.getBytes());
 				outStream.flush();
 
 				System.out.println("\n....................... Fine ricezione dati\n");
