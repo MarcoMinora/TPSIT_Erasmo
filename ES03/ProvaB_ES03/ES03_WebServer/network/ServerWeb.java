@@ -34,24 +34,43 @@ public class ServerWeb {
 				DataOutputStream outStream = new DataOutputStream(clientSocket.getOutputStream());	
 				BufferedReader inStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 	
-				// ---------------------------------------------------------
-				//Lettura dati dal client un righa alla volta   
-				while ((clientMsg=inStream.readLine()).length() != 0) {
-					System.out.println(clientMsg);	
-				}  
-				// Elaborare qui i dati ricevuti dal client 
+				
+                //Lettura dati dal client un righa alla volta   
+                clientMsg=inStream.readLine();
+				System.out.println(clientMsg);	
+		 
+                // Elaborare qui i dati ricevuti dal client 
+
+                clientMsg.trim();	//tolgo gli spazi all'inizio e alla fine della stringa
+				String clientMsgArr[]=clientMsg.split("\\s+");
+
 				// ---------------------------------------------------------
 
 				//Invio dei dati su stream di rete al client
 				serverMsg = "HTTP/1.1 200 OK\r\n";
 				//serverMsg += "Connection: close\r\n";
-				//serverMsg += "Content-Type: text/plain\r\n";
-				serverMsg += "\r\n";
-				serverMsg += "Saluti dal web server del sergente Marco Minora";
-				outStream.write(serverMsg.getBytes());
+				serverMsg += "Content-Type: text/html\r\n"; 
+                serverMsg += "\r\n";
+				
+                switch(clientMsgArr[1]) {
+                    case '/': serverMsg += "Saluti dal web server del sergente Marco Minora";
+                            break;
+
+                    case '/accendi': serverMsg += "<b>accendo</b> le luci";
+                            break;
+
+                    case '/spegni':  serverMsg += "<b>spengo</b> le luci";
+                            break;
+
+                    default : serverMsg += "Hai sbagliato qualcosa";           
+                }
+
+                System.out.println(serverMsg);	
+				
+                outStream.write(serverMsg.getBytes());
 				outStream.flush();
 
-				System.out.println("\n....................... Fine ricezione dati\n");
+				//System.out.println("\n....................... Fine ricezione dati\n");
 				// Close resources
 				clientSocket.close();
 				inStream.close();
