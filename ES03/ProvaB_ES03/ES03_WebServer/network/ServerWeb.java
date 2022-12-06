@@ -68,7 +68,7 @@ public class ServerWeb {
                     default : serverMsg += "Hai sbagliato qualcosa";           
                 }
 
-                System.out.print(serverMsg + "\n");		
+            	System.out.print(serverMsg + "\n");		
                 outStream.write(serverMsg.getBytes());
 				outStream.flush();
 
