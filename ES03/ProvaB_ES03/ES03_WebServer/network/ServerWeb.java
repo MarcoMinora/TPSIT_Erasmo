@@ -53,20 +53,22 @@ public class ServerWeb {
                 serverMsg += "\r\n";
 				
                 switch(clientMsgArr[1]) {
-                    case '/': serverMsg += "Saluti dal web server del sergente Marco Minora";
-                            break;
+                    case "/": serverMsg += "Saluti dal web server del sergente Marco Minora";
+                                            break;
 
-                    case '/accendi': serverMsg += "<b>accendo</b> le luci";
-                            break;
+                    case "/accendi":        serverMsg += "<b>accendo</b> le luci";
+                                            break;
 
-                    case '/spegni':  serverMsg += "<b>spengo</b> le luci";
-                            break;
+                    case "/spegni":         serverMsg += "<b>spengo</b> le luci";
+                                            break;
+
+                    case "/favicon.ico" :   serverMsg += "";
+                                            break;
 
                     default : serverMsg += "Hai sbagliato qualcosa";           
                 }
 
-                System.out.println(serverMsg);	
-				
+                System.out.print(serverMsg + "\n");		
                 outStream.write(serverMsg.getBytes());
 				outStream.flush();
 
