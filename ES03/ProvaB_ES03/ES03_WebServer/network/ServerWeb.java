@@ -66,6 +66,10 @@ public class ServerWeb {
                     case "/favicon.ico":	serverMsg += "";
                                         	break;
 
+					case "/esci":	serverMsg += "Il server <b>terminerà</b> la connessione";
+									endConn = true;
+                                    break;
+
                     default : 	serverMsg += "Hai sbagliato qualcosa";           
                 }
 
