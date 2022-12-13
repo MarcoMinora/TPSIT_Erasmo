@@ -42,7 +42,7 @@ public class ServerWeb {
                 // Elaborare qui i dati ricevuti dal client 
 
                 clientMsg.trim();	//tolgo gli spazi all'inizio e alla fine della stringa
-				String clientMsgArr[]=clientMsg.split("\\s+");
+				String clientMsgArr[]=clientMsg.split(" ");
 
 				// ---------------------------------------------------------
 
@@ -54,8 +54,8 @@ public class ServerWeb {
 				
                 switch(clientMsgArr[1]) {
                    
-				    case "/": 	serverMsg += "Saluti dal web server del sergente Marco Minora";
-                                break;
+				    case "/": 	serverMsg += "Saluti dal web server del sergente Marco Minora <ul><li><a href=\"/accendi\">accendi</li> <li><a href=\"/spegni\">spegni</li> <li><a href=\"/esci\">esci</li> </ul>";
+								break;
 
                     case "/accendi":	serverMsg += "<b>accendo</b> le luci";
                                         break;
